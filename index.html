@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Global Style CSS Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Link to your hosted stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" />
+</head>
+<body>
+
+  <header class="hero">
+    <h1>Global Styles Demo</h1>
+    <p class="hero-subtitle">Explore all components and utilities from the shared CSS file</p>
+    <button class="button button-primary" onclick="alert('Primary Button Clicked')">Primary CTA</button>
+    <button class="button button-secondary">Secondary Action</button>
+    <button class="button button-primary" disabled>Disabled Button</button>
+  </header>
+
+  <section class="card">
+    <h2>Card Component</h2>
+    <p>This card uses border, shadow, padding and max-width styling.</p>
+  </section>
+
+  <section class="info-split">
+    <div class="info-text">
+      <h3>Split Info</h3>
+      <p>Text beside an image, using flexbox and responsive layout.</p>
+    </div>
+    <div class="info-image">
+      <img src="https://2d73cea0.delivery.rocketcdn.me/app/uploads/2022/09/Primary-Logo-Black.svg" alt="Textile Exchange Logo">
+    </div>
+  </section>
+
+  <section class="tabs">
+    <ul class="tab-list" id="tab-list">
+      <li class="tab active" data-tab="tab1">Tab One</li>
+      <li class="tab" data-tab="tab2">Tab Two</li>
+      <li class="tab" data-tab="tab3">Tab Three</li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-panel" id="tab1">Content for Tab One.</div>
+      <div class="tab-panel" id="tab2" style="display:none;">Content for Tab Two.</div>
+      <div class="tab-panel" id="tab3" style="display:none;">Content for Tab Three.</div>
+    </div>
+  </section>
+
+  <section>
+    <div class="accordion">
+      <button class="accordion-toggle">Toggle Accordion 1</button>
+      <div class="accordion-content">
+        <p>This content is revealed when the accordion is open.</p>
+      </div>
+    </div>
+    <div class="accordion">
+      <button class="accordion-toggle">Toggle Accordion 2</button>
+      <div class="accordion-content">
+        <p>Another accordion section for demo purposes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <button class="button button-primary">
+  <i class="fas fa-user-plus"></i> Join Now
+</button>
+<p><i class="fas fa-check-circle"></i> Success Message</p>
+  </section>
+  <section class="cta-strip">
+    <div>
+      <h4>Call to Action</h4>
+      <p>Use this strip to drive user decisions.</p>
+    </div>
+    <button class="button button-primary">Join Now</button>
+  </section>
+
+  <section class="info-multicol">
+    <div class="info-col">
+      <h5>Column One</h5>
+      <i class="fa-brands fa-cotton-bureau"></i>
+      <p>Responsive and styled for informative blocks.</p>
+    </div>
+    <div class="info-col">
+      <h5>Column Two</h5>
+      <i class="fa-solid fa-globe"></i>
+      <p>Works well in groups for quick facts or steps.</p>
+    </div>
+    <div class="info-col">
+      <h5>Column Three</h5>
+      <i class="fa-solid fa-recycle"></i>
+      <p>Each column uses flex-grow for fluid width.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; Textile Exchange 2025. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript Interactions -->
+  <script>
+    // Accordion Toggle Logic
+    document.querySelectorAll('.accordion-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const accordion = button.parentElement;
+        accordion.classList.toggle('open');
+      });
+    });
+
+    // Tab Switching Logic
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.tab-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update tab classes
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show matching panel
+        panels.forEach(panel => {
+          panel.style.display = panel.id === tab.dataset.tab ? 'block' : 'none';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
